@@ -1543,3 +1543,7 @@ ul.icons li .icon-large:before {
 .icon-user-md {
   *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf200;&nbsp;');
 }
+
+.logo {
+	padding:4px;
+}
