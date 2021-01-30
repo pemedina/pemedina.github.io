@@ -1545,5 +1545,6 @@ ul.icons li .icon-large:before {
 }
 
 .logo {
-	padding:4px;
+	padding:2px;
+	width:150px;
 }
