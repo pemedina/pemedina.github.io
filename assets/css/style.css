@@ -180,6 +180,26 @@ img {
     padding-top: 0px;
   }
 }
+
+.btn-upwork {
+  color: #fff;
+  background-color: #448657;
+  border-color: #448657;
+  background-image: none;
+}
+.btn-new:hover, .btn-new:active {
+  color: #fff;
+  background-color: #005de1;
+  border-color: #005de1;
+}
+
+.btn-new.focus, .btn-new:focus {
+  color: #fff;
+  background-color: #448657;
+  border-color: #448657;
+  box-shadow: none;
+}
+
 /*  Font Awesome
     the iconic font designed for use with Twitter Bootstrap
     -------------------------------------------------------
