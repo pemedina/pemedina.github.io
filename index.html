@@ -1,145 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Pablo E. Medina</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Senior Backend Developer & Linux Systems Engineer with 20+ years of experience in long-term projects. Top Rated Plus on Upwork since 2020.">
-    <meta name="author" content="">
-    <!-- Le styles -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
-  <body>
-<section class="container">
-<!-- Header -->
-<header class="row-fluid">
-<div class="span8">
-<img class="logo" src="assets/img/profile2020.jpg" title="Yes, it's me" alt="My Profile"/>
-<h1>Pablo Medina</h1>
-<h2>Senior Backend Developer &amp; Linux Systems Engineer</h2>
-</div>
-<div class="social span4">
-<ul>
-<li><i class="icon-envelope-alt"></i>pablo.emilio.medina@fastmail.com</li>
-<li><i class="icon-phone"></i> +5492804680658</li>
-<li>
-<a href="https://twitter.com/pemedina" ><i class="icon-twitter" ></i></a>
-<a href="https://www.linkedin.com/in/pabloemiliomedina/" ><i class="icon-linkedin" ></i></a>
-<a href="https://github.com/pemedina" ><i class="icon-github" ></i></a>
-</li>
-</ul>
-</div>
-</header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pablo Medina | Senior Software Engineer & Cloud Architect</title>
 
-<!-- Welcome Text -->
-<article class="row-fluid">
-<header class="span3">
-<h3>Hello!</h3>
-</header>
-<div class="span9 ">
-<p class="welcome">
-My name is Pablo Medina. I’m a senior backend developer and Linux systems engineer from Argentina, living in beautiful <a href="http://en.wikipedia.org/wiki/Puerto_Madryn">Puerto Madryn</a>, Patagonia.
-</p>
+  <style>
+    :root {
+      --primary: #1f2933;
+      --secondary: #4b5563;
+      --accent: #2563eb;
+      --bg: #f9fafb;
+      --card: #ffffff;
+    }
 
-<p class="welcome">
-For more than 20 years I’ve been building and maintaining mission-critical backend systems and infrastructure for clients all over the world — entirely remotely.
-</p>
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
 
-<p class="welcome">
-I specialize in long-term backend projects (many lasting 3–8+ years), high-availability Linux environments, API design, performance optimization, and keeping servers rock-solid 24/7 — yes, I’m still the guy who checks logs at 3 AM when needed.
-</p>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.6;
+    }
 
-<p class="welcome">
-My freelance career started in 2002 on Rentacoder (now Freelancer). I completed <strong>405 jobs</strong> with an average rating of <strong>9.91/10</strong> and reached rank #289 worldwide in their historic “All Coders” competition.
-</p>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-<p class="welcome">
-Since 2008 I’ve been working primarily on <strong>Upwork</strong> (formerly oDesk). In July 2020 I earned the <strong>Top Rated Plus</strong> badge — a recognition reserved for freelancers with sustained excellence on large, long-term contracts.<br/>
-Check <a href="https://www.upwork.com/freelancers/~01fb91dedec6e31627/"><strong>my Upwork profile</strong></a> to see recent feedback and job history.
-</p>
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 25px;
+      margin-bottom: 35px;
+    }
 
-<p class="welcome">
-  <a class="btn btn-block btn-upwork" href="https://www.upwork.com/ab/flservices/workwith/pemedina">
-    <span class="tex"></span>Hire me on Upwork!
-  </a>
-</p>
+    h1 {
+      font-size: 2.6rem;
+      margin: 0;
+    }
 
-<p class="auth"><i>Pablo E. Medina</i></p>
-</div>
-</article>
+    .subtitle {
+      color: var(--secondary);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
 
-<!-- Skills -->
-<article class="row-fluid">
-<header class="span2">
-<h3>Skills</h3>
-</header>
-<div class="span10">
-<div class="row-fluid skills">
-<ul class="span8">
-<li><h4>Cloud Platforms</h4>
-<ul>
-<li><a href="http://www.digitalocean.com" target="_blank">Digital Ocean</a></li>
-<li>Amazon AWS</li>
-<li><a href="https://www.hetzner.com" target="_blank">Hetzner</a></li>
-<li>Google Cloud, Linode, Vultr</li>
-</ul>
-</li>
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.95rem;
+    }
 
-<li><h4>As Backend Developer (20+ years)</h4></li>
-<li>Complex REST & SOAP API design & consumption</li>
-<li>Laravel Framework (since v4), Slim, Symfony components</li>
-<li>CodeIgniter, custom PHP frameworks</li>
-<li>Python, Go, Node.js when required</li>
-<li>Perl legacy systems & scripting</li>
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-<li><h4>As SysAdmin</h4></li>
-<li>Linux server administration (Debian, Ubuntu, CentOS, AlmaLinux)</li>
-<li>Security hardening, audit, PCI compliance</li>
-<li>MySQL / MariaDB / PostgreSQL (install, tuning, replication)</li>
-<li>Advanced Bash scripting & automation</li>
-<li>Mail servers: Postfix, Exim, Qmail + SpamAssassin + ASSP</li>
-<li>Web servers: Apache, Nginx, Lighttpd</li>
-<li>DNS: Bind, PowerDNS, Windows DNS</li>
-<li>Control panels: CPanel/WHM, Plesk, Webmin/Virtualmin</li>
-<li>Containerization: Docker, OpenVZ, Virtuozzo</li>
-<li>Load balancing, proxying, performance tuning</li>
-<li>Custom RPM/SRPM builds & software compilation</li>
-</ul>
+    section {
+      margin-bottom: 40px;
+    }
 
-<ul class="span4">
-<li><h4>Languages</h4></li>
-<li><strong>Spanish</strong> – Native speaker</li>
-<li><strong>English</strong> – Fully fluent (written & spoken)</li>
-</ul>
-</div>
-</div>
-</article>
+    h2 {
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
 
-<!-- Footer -->
-<footer>
-&copy; 2024–2025
-<a href="#" onclick="javascript:window.print();">Print</a> | <a href="#top">To top <i class="icon-arrow-up"></i></a>
-</footer>
-</section>
+    .card {
+      background: var(--card);
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script src="assets/js/main.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-23885088-1', 'auto');
-  ga('send', 'pageview');
-</script>
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .skills ul {
+      padding-left: 18px;
+      margin: 6px 0 0;
+    }
+
+    .job {
+      margin-bottom: 28px;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .job span {
+      display: block;
+      margin-top: 2px;
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      margin-top: 45px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.1rem;
+      }
+
+      .contact {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Pablo Medina</h1>
+
+      <div class="subtitle">
+        Senior Software Engineer · Cloud Architect · DevOps
+      </div>
+
+      <div class="contact">
+        <div>📍 Argentina</div>
+        <div>📧 pablo.emilio.medina@fastmail.com</div>
+        <div>📞 +54 9 280 468 0658</div>
+        <div>🌐 <a href="https://www.pablomedina.dev" target="_blank">pablomedina.dev</a></div>
+        <div>💻 <a href="https://github.com/" target="_blank">GitHub</a></div>
+        <div>🔗 <a href="https://linkedin.com/" target="_blank">LinkedIn</a></div>
+      </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section>
+      <h2>Professional Summary</h2>
+
+      <div class="card">
+        Senior software engineer and cloud architect with 20+ years of experience
+        and a proven record as a Top Rated Plus consultant on Upwork.
+        100% Job Success with 23,526+ hours delivered for international clients.
+        Specialized in backend development with PHP, Go, and Python, cloud-native
+        architectures on AWS, and AI-assisted development workflows.
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+      <h2>Core Skills</h2>
+
+      <div class="card skills">
+
+        <div>
+          <strong>Languages</strong>
+          <ul>
+            <li>PHP</li>
+            <li>Go</li>
+            <li>Python</li>
+            <li>Bash</li>
+          </ul>
+        </div>
+
+        <div>
+          <strong>Frameworks</strong>
+          <ul>
+            <li>Laravel</li>
+            <li>FastAPI</li>
+            <li>Flask</li>
+            <li>Gin / Cobra</li>
+          </ul>
+        </div>
+
+        <div>
+          <strong>Cloud & DevOps</strong>
+          <ul>
+            <li>AWS (EC2, RDS, S3, Lambda, Bedrock)</li>
+            <li>Docker</li>
+            <li>Terraform</li>
+            <li>CI/CD</li>
+          </ul>
+        </div>
+
+        <div>
+          <strong>Tools</strong>
+          <ul>
+            <li>Git / GitHub</li>
+            <li>GitHub Copilot</li>
+            <li>Claude Code</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RECOGNITION -->
+    <section>
+      <h2>Professional Recognition</h2>
+
+      <div class="card">
+        <ul>
+          <li>Top Rated Plus Consultant on Upwork</li>
+          <li>100% Job Success Score</li>
+          <li>23,526+ Hours Delivered</li>
+          <li>Consistently 5-Star Client Feedback</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="card">
+
+        <div class="job">
+          <h3>Senior Software Engineer / Top Rated Plus Consultant</h3>
+          <span>Upwork & Independent Consulting · 2002 – Present</span>
+
+          <ul>
+            <li>Achieved Top Rated Plus status with 100% Job Success score.</li>
+            <li>Completed 73 successful contracts with 23,526+ logged hours.</li>
+            <li>Built long-term partnerships with startups and enterprise clients.</li>
+            <li>Designed and developed backend systems using Laravel, FastAPI, and Go.</li>
+            <li>Architected scalable cloud solutions on AWS.</li>
+            <li>Implemented AI-powered solutions using Amazon Bedrock.</li>
+            <li>Integrated AI-assisted workflows using Claude and GitHub Copilot.</li>
+            <li>Automated deployments and infrastructure using CI/CD and IaC.</li>
+            <li>Recognized for reliability, communication, and technical leadership.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="card">
+
+        <div class="job">
+          <h3>Cloud-Native SaaS Platform</h3>
+          <span>Laravel · AWS · Docker</span>
+
+          <ul>
+            <li>Built a multi-tenant backend serving thousands of users.</li>
+            <li>Implemented auto-scaling, monitoring, and alerting.</li>
+            <li>Reduced operational costs through cloud optimization.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3>AI-Assisted Development Workflow</h3>
+          <span>Claude · GitHub Copilot · Python</span>
+
+          <ul>
+            <li>Integrated AI tools into daily development processes.</li>
+            <li>Improved development speed and test coverage.</li>
+            <li>Standardized code quality and documentation.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+      <h2>Education & Continuous Learning</h2>
+
+      <div class="card">
+        <ul>
+          <li>Continuous Professional Development in Cloud & Software Architecture</li>
+          <li>AWS Training & Self-Directed Certifications</li>
+          <li>Advanced DevOps & Distributed Systems Coursework</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      © 2026 Pablo Medina · Senior Software Engineer & Cloud Architect
+    </footer>
+
+  </div>
+
 </body>
 </html>
