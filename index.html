@@ -153,6 +153,46 @@
       padding-left: 20px;
     }
 
+    .quote {
+      margin: 0;
+      padding: 22px 26px;
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .quote blockquote {
+      margin: 0;
+    }
+
+    .quote p {
+      margin: 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .quote p::before {
+      content: "\201C";
+    }
+
+    .quote p::after {
+      content: "\201D";
+    }
+
+    .quote figcaption {
+      margin-top: 10px;
+      text-align: right;
+      color: var(--secondary);
+      font-size: 0.95rem;
+    }
+
+    .quote-note {
+      margin: 16px 0 0;
+      color: var(--secondary);
+    }
+
     footer {
       text-align: center;
       font-size: 0.85rem;
@@ -221,6 +261,27 @@
 
       </header>
 
+
+      <!-- QUOTE -->
+      <section>
+        <figure class="quote">
+          <blockquote>
+            <p>We are reaching a point where writing code is no longer the hardest part of
+            software engineering for AI. Understanding the full implications of a change,
+            respecting an existing architecture, anticipating edge cases and delivering
+            something another engineer can confidently approve are much harder.</p>
+          </blockquote>
+          <figcaption>— Mr Claude</figcaption>
+        </figure>
+
+        <p class="quote-note">
+          That's the kind of work I'm steadily moving into. After 20+ years as a
+          hands-on developer, my focus is shifting from writing code to owning the
+          change: understanding its impact, respecting the architecture already in
+          place, catching edge cases early and shipping work a reviewer can approve
+          with confidence. That's the profile the AI era asks for.
+        </p>
+      </section>
 
       <!-- SUMMARY -->
       <section>
