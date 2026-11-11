@@ -21,18 +21,50 @@
     <link rel="icon" href="assets/ico/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#f4f3ee" />
+
     <style>
 :root {
-  --primary: #1f2933;
-  --secondary: #4b5563;
-  --accent: #2563eb;
-  --bg: #f9fafb;
+  /* Claude brand palette: Crail, Cloudy, Pampas, White */
+  --crail: #c15f3c;
+  --cloudy: #b1ada1;
+  --pampas: #f4f3ee;
+
+  --primary: #141413;
+  --secondary: #5e5d59;
+  --accent: #c15f3c;
+  --link: #a84e2e; /* darker Crail, keeps text links above 4.5:1 on Pampas */
+  --bg: var(--pampas);
   --card: #ffffff;
+  --border: #e3e0d6;
+  --shadow: rgba(20, 20, 19, 0.06);
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #f4f3ee;
+    --secondary: #b1ada1;
+    --accent: #d97757;
+    --link: #e08a6b;
+    --bg: #1f1e1d;
+    --card: #2a2927;
+    --border: #3a3936;
+    --shadow: rgba(0, 0, 0, 0.3);
+  }
 }
 
 * {
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+h1, h2, h3, .quote p {
+  font-family: var(--serif);
+  font-weight: 500;
 }
 
     body {
@@ -52,7 +84,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      border-bottom: 2px solid #e5e7eb;
+      border-bottom: 1px solid var(--border);
       padding-bottom: 25px;
       margin-bottom: 35px;
     }
@@ -72,8 +104,8 @@
       height: 110px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #e5e7eb;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border: 3px solid var(--crail);
+      box-shadow: 0 2px 6px var(--shadow);
     }
 
     h1 {
@@ -94,9 +126,13 @@
       font-size: 0.95rem;
     }
 
-    .contact a {
-      color: var(--accent);
+    a {
+      color: var(--link);
       text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     section {
@@ -110,11 +146,60 @@
       padding-left: 12px;
     }
 
+    details > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      border-radius: 6px;
+    }
+
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details > summary h2 {
+      margin: 0;
+    }
+
+    details > summary::after {
+      content: "";
+      flex-shrink: 0;
+      width: 9px;
+      height: 9px;
+      margin-right: 6px;
+      border-right: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+
+    details:not([open]) > summary {
+      margin-bottom: 0;
+    }
+
+    details:not([open]) > summary::after {
+      transform: rotate(-45deg);
+    }
+
+    details > summary:hover h2 {
+      color: var(--accent);
+    }
+
+    details > summary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
     .card {
       background: var(--card);
       padding: 22px;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px var(--shadow);
     }
 
     .skills {
@@ -148,6 +233,10 @@
       font-size: 0.9rem;
     }
 
+    li::marker {
+      color: var(--accent);
+    }
+
     ul {
       margin-top: 10px;
       padding-left: 20px;
@@ -157,9 +246,10 @@
       margin: 0;
       padding: 22px 26px;
       background: var(--card);
+      border: 1px solid var(--border);
       border-left: 4px solid var(--accent);
       border-radius: 0 10px 10px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 3px var(--shadow);
     }
 
     .quote blockquote {
@@ -199,7 +289,7 @@
       color: var(--secondary);
       margin-top: 45px;
       padding-top: 20px;
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid var(--border);
     }
 
     @media (max-width: 600px) {
@@ -285,148 +375,160 @@
 
       <!-- SUMMARY -->
       <section>
-        <h2>Professional Summary</h2>
+        <details open>
+          <summary><h2>Professional Summary</h2></summary>
 
-        <div class="card">
-          Senior backend developer with 20+ years of experience and a proven record as a
-          Top Rated Plus consultant on Upwork.
-          100% Job Success with 23,526+ hours delivered for international clients.
-          Specialized in backend development with PHP, Go, and Python, cloud-native
-          architectures on AWS, and AI-assisted development workflows.
-        </div>
+          <div class="card">
+            Senior backend developer with 20+ years of experience and a proven record as a
+            Top Rated Plus consultant on Upwork.
+            100% Job Success with 23,526+ hours delivered for international clients.
+            Specialized in backend development with PHP, Go, and Python, cloud-native
+            architectures on AWS, and AI-assisted development workflows.
+          </div>
+        </details>
       </section>
 
       <!-- SKILLS -->
       <section>
-        <h2>Core Skills</h2>
+        <details open>
+          <summary><h2>Core Skills</h2></summary>
 
-        <div class="card skills">
+          <div class="card skills">
 
-          <div>
-            <strong>Languages</strong>
-            <ul>
-              <li>PHP</li>
-              <li>Go</li>
-              <li>Python</li>
-              <li>Bash</li>
-            </ul>
+            <div>
+              <strong>Languages</strong>
+              <ul>
+                <li>PHP</li>
+                <li>Go</li>
+                <li>Python</li>
+                <li>Bash</li>
+              </ul>
+            </div>
+
+            <div>
+              <strong>Frameworks</strong>
+              <ul>
+                <li>Laravel</li>
+                <li>FastAPI</li>
+                <li>Flask</li>
+                <li>Gin / Cobra</li>
+              </ul>
+            </div>
+
+            <div>
+              <strong>Cloud & DevOps</strong>
+              <ul>
+                <li>AWS (EC2, RDS, S3, Lambda, Bedrock)</li>
+                <li>Digital Ocean (Spaces, Functions, Compute)</li>
+                <li>Docker</li>
+                <li>CI/CD</li>
+              </ul>
+            </div>
+
+            <div>
+              <strong>Tools</strong>
+              <ul>
+                <li>Git / GitHub</li>
+                <li>GitHub Copilot</li>
+                <li>Claude Code</li>
+                <li>Linux</li>
+              </ul>
+            </div>
+
           </div>
-
-          <div>
-            <strong>Frameworks</strong>
-            <ul>
-              <li>Laravel</li>
-              <li>FastAPI</li>
-              <li>Flask</li>
-              <li>Gin / Cobra</li>
-            </ul>
-          </div>
-
-          <div>
-            <strong>Cloud & DevOps</strong>
-            <ul>
-              <li>AWS (EC2, RDS, S3, Lambda, Bedrock)</li>
-              <li>Digital Ocean (Spaces, Functions, Compute)</li>
-              <li>Docker</li>
-              <li>CI/CD</li>
-            </ul>
-          </div>
-
-          <div>
-            <strong>Tools</strong>
-            <ul>
-              <li>Git / GitHub</li>
-              <li>GitHub Copilot</li>
-              <li>Claude Code</li>
-              <li>Linux</li>
-            </ul>
-          </div>
-
-        </div>
+        </details>
       </section>
 
       <!-- RECOGNITION -->
       <section>
-        <h2>Professional Recognition</h2>
+        <details open>
+          <summary><h2>Professional Recognition</h2></summary>
 
-        <div class="card">
-          <ul>
-            <li>Top Rated Plus Consultant on Upwork</li>
-            <li>100% Job Success Score</li>
-            <li>23,526+ Hours Delivered</li>
-            <li>Consistently 5-Star Client Feedback</li>
-          </ul>
-        </div>
+          <div class="card">
+            <ul>
+              <li>Top Rated Plus Consultant on Upwork</li>
+              <li>100% Job Success Score</li>
+              <li>23,526+ Hours Delivered</li>
+              <li>Consistently 5-Star Client Feedback</li>
+            </ul>
+          </div>
+        </details>
       </section>
 
       <!-- EXPERIENCE -->
       <section>
-        <h2>Professional Experience</h2>
+        <details open>
+          <summary><h2>Professional Experience</h2></summary>
 
-        <div class="card">
+          <div class="card">
 
-          <div class="job">
-            <h3>Senior Backend Developer / Top Rated Plus Consultant</h3>
-            <span>Upwork & Independent Consulting · 2002 – Present</span>
+            <div class="job">
+              <h3>Senior Backend Developer / Top Rated Plus Consultant</h3>
+              <span>Upwork & Independent Consulting · 2002 – Present</span>
 
-            <ul>
-              <li>Achieved Top Rated Plus status with 100% Job Success score.</li>
-              <li>Completed 73 successful contracts with 23,526+ logged hours.</li>
-              <li>Built long-term partnerships with startups and enterprise clients.</li>
-              <li>Designed and developed backend systems using Laravel, FastAPI, and Go.</li>
-              <li>Built and scaled cloud infrastructure on AWS.</li>
-              <li>Implemented AI-powered solutions using Amazon Bedrock.</li>
-              <li>Integrated AI-assisted workflows using Claude and GitHub Copilot.</li>
-              <li>Automated deployments and infrastructure using CI/CD and IaC.</li>
-              <li>Recognized for reliability, communication, and technical leadership.</li>
-            </ul>
+              <ul>
+                <li>Achieved Top Rated Plus status with 100% Job Success score.</li>
+                <li>Completed 73 successful contracts with 23,526+ logged hours.</li>
+                <li>Built long-term partnerships with startups and enterprise clients.</li>
+                <li>Designed and developed backend systems using Laravel, FastAPI, and Go.</li>
+                <li>Built and scaled cloud infrastructure on AWS.</li>
+                <li>Implemented AI-powered solutions using Amazon Bedrock.</li>
+                <li>Integrated AI-assisted workflows using Claude and GitHub Copilot.</li>
+                <li>Automated deployments and infrastructure using CI/CD and IaC.</li>
+                <li>Recognized for reliability, communication, and technical leadership.</li>
+              </ul>
+            </div>
+
           </div>
-
-        </div>
+        </details>
       </section>
 
       <!-- PROJECTS -->
       <section>
-        <h2>Selected Projects</h2>
+        <details open>
+          <summary><h2>Selected Projects</h2></summary>
 
-        <div class="card">
+          <div class="card">
 
-          <div class="job">
-            <h3>Cloud-Native SaaS Platform</h3>
-            <span>Laravel · AWS · Docker</span>
+            <div class="job">
+              <h3>Cloud-Native SaaS Platform</h3>
+              <span>Laravel · AWS · Docker</span>
 
-            <ul>
-              <li>Built a multi-tenant backend serving thousands of users.</li>
-              <li>Implemented auto-scaling, monitoring, and alerting.</li>
-              <li>Reduced operational costs through cloud optimization.</li>
-            </ul>
+              <ul>
+                <li>Built a multi-tenant backend serving thousands of users.</li>
+                <li>Implemented auto-scaling, monitoring, and alerting.</li>
+                <li>Reduced operational costs through cloud optimization.</li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <h3>AI-Assisted Development Workflow</h3>
+              <span>Claude · GitHub Copilot · Python</span>
+
+              <ul>
+                <li>Integrated AI tools into daily development processes.</li>
+                <li>Improved development speed and test coverage.</li>
+                <li>Standardized code quality and documentation.</li>
+              </ul>
+            </div>
+
           </div>
-
-          <div class="job">
-            <h3>AI-Assisted Development Workflow</h3>
-            <span>Claude · GitHub Copilot · Python</span>
-
-            <ul>
-              <li>Integrated AI tools into daily development processes.</li>
-              <li>Improved development speed and test coverage.</li>
-              <li>Standardized code quality and documentation.</li>
-            </ul>
-          </div>
-
-        </div>
+        </details>
       </section>
 
       <!-- EDUCATION -->
       <section>
-        <h2>Education & Continuous Learning</h2>
+        <details open>
+          <summary><h2>Education & Continuous Learning</h2></summary>
 
-        <div class="card">
-          <ul>
-            <li>Continuous Professional Development in Cloud & Software Architecture</li>
-            <li>AWS Training & Self-Directed Certifications</li>
-            <li>Advanced DevOps & Distributed Systems Coursework</li>
-          </ul>
-        </div>
+          <div class="card">
+            <ul>
+              <li>Continuous Professional Development in Cloud & Software Architecture</li>
+              <li>AWS Training & Self-Directed Certifications</li>
+              <li>Advanced DevOps & Distributed Systems Coursework</li>
+            </ul>
+          </div>
+        </details>
       </section>
 
       <!-- FOOTER -->
